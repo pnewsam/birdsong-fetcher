@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.16.2",
+    "bulma": "^0.5.1",
     "firebase": "^4.3.0",
     "firebase-tools": "^3.9.2",
     "global": "^4.3.2",
