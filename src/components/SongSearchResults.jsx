@@ -15,22 +15,26 @@ function SongSearchResults(props) {
   console.log(results)
   results = results.map(r=>
     <TableRow>
-      <TableRowColumn>{r.gen} {r.sp}</TableRowColumn>
-      <TableRowColumn>{r.loc}</TableRowColumn>
-      <TableRowColumn>{r.rec}</TableRowColumn>
-      <TableRowColumn><a href={r.file}>Audio</a></TableRowColumn>
+      <TableRowColumn style={{verticalAlign: "middle"}}>{r.gen} {r.sp}</TableRowColumn>
+      <TableRowColumn style={{verticalAlign: "middle"}}>{r.loc}</TableRowColumn>
+      <TableRowColumn style={{verticalAlign: "middle"}}>{r.rec}</TableRowColumn>
+      <TableRowColumn style={{verticalAlign: "middle"}}>
+        <audio controls preload="none">
+          <source src={r.file} type="audio/mpeg" />
+        </audio>
+      </TableRowColumn>
     </TableRow>
   )
   return(
     <div>
       <Subheader>Results</Subheader>
       <Table>
-        <TableHeader displaySelectAll={false}>
+        <TableHeader displaySelectAll={false} adjustForCheckbox={false} style={{fontSize: "1.5em"}}>
           <TableRow>
-            <TableHeaderColumn>Scientific Name</TableHeaderColumn>
-            <TableHeaderColumn>Location</TableHeaderColumn>
-            <TableHeaderColumn>Recorder</TableHeaderColumn>
-            <TableHeaderColumn>Audio</TableHeaderColumn>
+            <TableHeaderColumn style={{verticalAlign: "middle", fontSize: ".7em"}}>Scientific Name</TableHeaderColumn>
+            <TableHeaderColumn style={{verticalAlign: "middle", fontSize: ".7em"}}>Location</TableHeaderColumn>
+            <TableHeaderColumn style={{verticalAlign: "middle", fontSize: ".7em"}}>Recorder</TableHeaderColumn>
+            <TableHeaderColumn style={{verticalAlign: "middle", fontSize: ".7em"}}>Audio</TableHeaderColumn>
           </TableRow>
         </TableHeader>
         <TableBody displayRowCheckbox={false}>
