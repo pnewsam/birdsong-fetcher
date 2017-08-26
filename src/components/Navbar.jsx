@@ -4,8 +4,9 @@ import AppBar from 'material-ui/AppBar';
 function Navbar () {
   return(
   <AppBar
-    title="Title"
-    iconClassNameRight="muidocs-icon-navigation-expand-more"
+    title="Birdsong Fetcher"
+    titleStyle={{textAlign: "center"}}
+    showMenuIconButton={false}
   />
   )
 }
