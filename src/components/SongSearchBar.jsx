@@ -28,16 +28,23 @@ class SongSearchBar extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.composeQuery();
+    let query = this.composeQuery();
+    let url = "https://cors-anywhere.herokuapp.com/http://www.xeno-canto.org/api/2/recordings?query=" + query;
+    fetch(url)
+    .then(response => response.json())
+    .then(contents => {
+      this.populateResults(contents.recordings.slice(0,20));
+      // console.log(contents.recordings)
+    })
+    .catch(console.log(`Can't access ${url} - response. Blocked by browser?`));
   }
 
   composeQuery() {
-    let url = "https://cors-anywhere.herokuapp.com/http://www.xeno-canto.org/api/2/recordings?query="
     let name = this.formatQueryString(this.state.commonNameVal);
     let county = this.formatQueryString(this.state.countyVal);
     let state = this.formatQueryString(this.state.stateVal);
-    url = url + name + "&loc=" + county + "%20" + state;
-    console.log(url)
+    let query = name + "&loc=" + county + "%20" + state;
+    return query;
   }
 
   formatQueryString(string) {

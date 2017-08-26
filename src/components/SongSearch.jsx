@@ -9,10 +9,14 @@ class SongSearch extends Component {
     this.state = {
       recordings: {}
     };
+    this.populateResults = this.populateResults.bind(this);
   }
 
-  populateResults() {
-
+  populateResults(contents) {
+    this.setState({
+      recordings: contents
+    })
+    // console.log(this.state.recordings)
   }
 
   render() {
@@ -20,7 +24,7 @@ class SongSearch extends Component {
       <div className="columns">
         <div className="column">
           <SongSearchBar populateResults={this.populateResults}/>
-          <SongSearchResults />
+          <SongSearchResults results={this.state.recordings}/>
         </div>
       </div>
     )
