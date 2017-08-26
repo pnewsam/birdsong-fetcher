@@ -6,14 +6,20 @@ import SongSearchResults from "./SongSearchResults";
 class SongSearch extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      recordings: {}
+    };
+  }
+
+  populateResults() {
+
   }
 
   render() {
     return(
       <div className="columns">
         <div className="column">
-          <SongSearchBar />
+          <SongSearchBar populateResults={this.populateResults}/>
           <SongSearchResults />
         </div>
       </div>

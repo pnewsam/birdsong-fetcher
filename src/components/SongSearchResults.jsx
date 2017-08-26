@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Paper from 'material-ui/Paper';
 import Subheader from 'material-ui/Subheader';
 
 class SongSearchResults extends Component {
@@ -11,9 +10,8 @@ class SongSearchResults extends Component {
   render(){
     return(
       <div>
-        <Subheader>
-          Results
-        </Subheader>
+        <Subheader>Results</Subheader>
+        {}
       </div>
     )
   }
